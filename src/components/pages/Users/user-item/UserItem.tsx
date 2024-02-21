@@ -52,27 +52,47 @@ const UserItem: FC<IUserItem> = ({ user }) => {
 			{editing ? (
 				<>
 					<input
-					className={styles.input}
+						className={styles.input}
 						type='text'
 						name='firstName'
 						value={editedUser.firstName}
 						onChange={handleChange}
 					/>
 					<input
+						className={styles.input}
 						type='text'
 						name='lastName'
 						value={editedUser.lastName}
 						onChange={handleChange}
 					/>
 					<button onClick={() => handleSubmit(user.id)}>Save</button>
-					<button onClick={() => setEditing(false)}>Cancel</button>
+					<button className={styles.ml} onClick={() => setEditing(false)}>
+						Cancel
+					</button>
 				</>
 			) : (
 				<>
-					{user.firstName} {user.lastName}
-					<Link to={`/user/${user.id}`}>Read more</Link>
+					<div className={styles.icon}>
+						<img className={styles.img} src='./kid.png' alt='kid' />
+						<div className={styles.info}>
+							<div>{user.firstName}</div>
+							<div>{user.lastName}</div>
+						</div>
+					</div>
+
+					<div>
+						<Link className={styles.link} to={`/user/${user.id}`}>
+							Read more
+						</Link>
+					</div>
+
 					<button onClick={handleEdit}>Edit</button>
-					<button onClick={() => handleDeleteUser(user.id)}>Delete</button>
+					<button
+						className={styles.ml}
+						onClick={() => handleDeleteUser(user.id)}
+					>
+						Delete
+					</button>
 				</>
 			)}
 		</li>

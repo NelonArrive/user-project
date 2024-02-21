@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../../store'
 import { fetchUsersAsync } from '../../../store/usersSlice'
 import CreateUserForm from '../../ui/CreateUserForm/CreateUserForm'
-import UserItem from './user-item/UserItem'
 import styles from './Users.module.css'
+import UserItem from './user-item/UserItem'
 
 const Users: FC = () => {
 	const dispatch = useDispatch<AppDispatch>()
@@ -20,9 +20,9 @@ const Users: FC = () => {
 	if (status === 'failed') return <div>Error: {error}</div>
 
 	return (
-		<div className={styles.users}>
+		<div>
 			<CreateUserForm />
-			<ul>
+			<ul className={styles.users}>
 				{users.map(user => (
 					<UserItem key={user.id} user={user} />
 				))}
