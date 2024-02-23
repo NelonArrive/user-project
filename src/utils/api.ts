@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { IEditUserAsync } from '../store/usersSlice'
+import { IEditUserAsync } from '../redux/user/userSlice'
 
 export const API_URL = 'http://localhost:4200'
 

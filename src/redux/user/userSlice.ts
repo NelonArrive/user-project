@@ -7,16 +7,13 @@ import {
 	getUserById,
 } from '../../utils/api'
 
-export const fetchUsersAsync = createAsyncThunk(
-	'users/fetchUsers',
-	async () => {
-		const response = await fetchUsers()
-		return response
-	}
-)
+export const fetchUsersAsync = createAsyncThunk('user/fetchUser', async () => {
+	const response = await fetchUsers()
+	return response
+})
 
 export const getUserByIdAsync = createAsyncThunk(
-	'users/getUserById',
+	'user/getUserById',
 	async (userId: string) => {
 		const response = await getUserById(userId)
 		return response
@@ -24,7 +21,7 @@ export const getUserByIdAsync = createAsyncThunk(
 )
 
 export const createUserAsync = createAsyncThunk(
-	'users/createUser',
+	'user/createUser',
 	async (userData: any) => {
 		const response = await createUser(userData)
 		return response
@@ -32,7 +29,7 @@ export const createUserAsync = createAsyncThunk(
 )
 
 export const editUserAsync = createAsyncThunk(
-	'users/editUser',
+	'user/editUser',
 	async ({
 		userId,
 		userData,
@@ -46,7 +43,7 @@ export const editUserAsync = createAsyncThunk(
 )
 
 export const deleteUserAsync = createAsyncThunk(
-	'users/deleteUser',
+	'user/deleteUser',
 	async (userId: number) => {
 		await deleteUser(userId)
 		return userId
@@ -65,21 +62,22 @@ export interface User {
 export interface IEditUserAsync {
 	firstName: string
 	lastName: string
+	projectName: string
 }
 
-interface UsersState {
-	users: User[]
+interface UserState {
+	items: User[]
 	status: 'idle' | 'loading' | 'succeeded' | 'failed'
 	error: string | null
 }
 
-const initialState: UsersState = {
-	users: [],
+const initialState: UserState = {
+	items: [],
 	status: 'idle',
 	error: null,
 }
 
-const usersSlice = createSlice({
+const userSlice = createSlice({
 	name: 'users',
 	initialState,
 	reducers: {},
@@ -90,33 +88,33 @@ const usersSlice = createSlice({
 			})
 			.addCase(fetchUsersAsync.fulfilled, (state, action) => {
 				state.status = 'succeeded'
-				state.users = action.payload
+				state.items = action.payload
 			})
 			.addCase(fetchUsersAsync.rejected, (state, action) => {
 				state.status = 'failed'
 				state.error = action.error.message || null
 			})
 			.addCase(createUserAsync.fulfilled, (state, action) => {
-				state.users.push(action.payload)
+				state.items.push(action.payload)
 			})
 			.addCase(editUserAsync.fulfilled, (state, action) => {
-				const index = state.users.findIndex(
+				const index = state.items.findIndex(
 					user => user.id === action.payload.id
 				)
 				if (index !== -1) {
-					state.users[index] = action.payload
+					state.items[index] = action.payload
 				}
 			})
 			.addCase(deleteUserAsync.fulfilled, (state, action) => {
-				state.users = state.users.filter(user => user.id !== action.payload)
+				state.items = state.items.filter(user => user.id !== action.payload)
 			})
 			.addCase(getUserByIdAsync.pending, state => {
-				state.users = []
+				state.items = []
 			})
 			.addCase(getUserByIdAsync.fulfilled, (state, action) => {
-				state.users = action.payload
+				state.items = action.payload
 			})
 	},
 })
 
-export default usersSlice.reducer
+export default userSlice.reducer

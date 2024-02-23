@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
+import CardDetail from './components/pages/CardDetail/CardDetail'
+import Cards from './components/pages/Cards/Cards'
 import Home from './components/pages/Home/Home'
-import UserDetail from './components/pages/UserDetail/UserDetail'
-import Users from './components/pages/Users/Users'
 
 function App() {
 	return (
 		<Routes>
 			<Route path='*' element={<Home />} />
-			<Route path='/users' element={<Users />} />
-			<Route path='/user/:id' element={<UserDetail />} />
+			<Route path='/cards' element={<Cards />} />
+			<Route path='/card/:id' element={<CardDetail />} />
 		</Routes>
 	)
 }

@@ -1,22 +1,30 @@
 import { ChangeEvent, FC, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { AppDispatch } from '../../../../store'
+import { AppDispatch, RootState } from '../../../../redux/store'
 import {
 	User,
 	deleteUserAsync,
 	editUserAsync,
-} from '../../../../store/usersSlice'
-import styles from './UserItem.module.css'
+} from '../../../../redux/user/userSlice'
+import styles from './CardItem.module.css'
 
-interface IUserItem {
+interface ICardItem {
 	user: User
 }
 
-const UserItem: FC<IUserItem> = ({ user }) => {
+const CardItem: FC<ICardItem> = ({ user }) => {
 	const dispatch = useDispatch<AppDispatch>()
 	const [editing, setEditing] = useState(false)
-	const [editedUser, setEditedUser] = useState({ ...user })
+
+	const devices = useSelector((state: RootState) => state.devices.items)
+	const projects = useSelector((state: RootState) => state.projects)
+
+	const [editedUser, setEditedUser] = useState({ ...projects, ...user })
+
+	const editedProjectsName = editedUser.items.map(p => p.title)
+	console.log('editedProjectsName', editedProjectsName)
+	console.log('editedUser.items', editedUser.items)
 
 	const handleEdit = () => {
 		setEditing(true)
@@ -37,6 +45,7 @@ const UserItem: FC<IUserItem> = ({ user }) => {
 				userData: {
 					firstName: editedUser.firstName,
 					lastName: editedUser.lastName,
+					projectName: editedProjectsName,
 				},
 			})
 		)
@@ -65,6 +74,13 @@ const UserItem: FC<IUserItem> = ({ user }) => {
 						value={editedUser.lastName}
 						onChange={handleChange}
 					/>
+					<input
+						className={styles.input}
+						type='text'
+						name='projectName'
+						value={editedUser.projectName}
+						onChange={handleChange}
+					/>
 					<button onClick={() => handleSubmit(user.id)}>Save</button>
 					<button className={styles.ml} onClick={() => setEditing(false)}>
 						Cancel
@@ -81,7 +97,7 @@ const UserItem: FC<IUserItem> = ({ user }) => {
 					</div>
 
 					<div>
-						<Link className={styles.link} to={`/user/${user.id}`}>
+						<Link className={styles.link} to={`/card/${user.id}`}>
 							Read more
 						</Link>
 					</div>
@@ -99,4 +115,4 @@ const UserItem: FC<IUserItem> = ({ user }) => {
 	)
 }
 
-export default UserItem
+export default CardItem

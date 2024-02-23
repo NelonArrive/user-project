@@ -8,13 +8,6 @@
       "disabled": 0
     },
     {
-      "id": "11",
-      "projectId": 40,
-      "firstName": "Jack",
-      "lastName": "Sparrow",
-      "disabled": 1
-    },
-    {
       "id": "18",
       "projectId": 1,
       "firstName": "Jack",
@@ -50,20 +43,6 @@
       "disabled": 0
     },
     {
-      "id": "23",
-      "projectId": 6,
-      "firstName": "Sophia",
-      "lastName": "Davis",
-      "disabled": 0
-    },
-    {
-      "id": "24",
-      "projectId": 7,
-      "firstName": "Lucas",
-      "lastName": "Miller",
-      "disabled": 0
-    },
-    {
       "id": "25",
       "projectId": 8,
       "firstName": "Olivia",
@@ -75,20 +54,6 @@
       "projectId": 9,
       "firstName": "Ethan",
       "lastName": "Moore",
-      "disabled": 0
-    },
-    {
-      "id": "27",
-      "projectId": 10,
-      "firstName": "Ava",
-      "lastName": "Taylor",
-      "disabled": 0
-    },
-    {
-      "id": "28",
-      "projectId": 11,
-      "firstName": "Liam",
-      "lastName": "Anderson",
       "disabled": 0
     },
     {
@@ -106,7 +71,7 @@
       "disabled": 0
     }
   ],
-  "device": [
+  "devices": [
     {
       "deviceId": 1,
       "projectId": 1,
@@ -212,124 +177,132 @@
   ],
   "projects": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Tec4med",
       "parentId": null,
       "beginDate": "2019-04-30T00:00:00.000Z",
       "expirationDate": "2020-02-01T00:00:00.000Z",
       "deleted": 0
-  },
-  {
-      "id": 2,
+    },
+    {
+      "id": "2",
       "title": "Scalors",
       "parentId": 1,
       "beginDate": "2019-05-04T00:00:00.000Z",
       "expirationDate": "2020-01-01T03:00:00.000Z",
       "deleted": 0
-  },
-  {
-      "id": 3,
+    },
+    {
+      "id": "42",
+      "title": "Scalors",
+      "parentId": 1,
+      "beginDate": "2019-05-04T00:00:00.000Z",
+      "expirationDate": "2020-01-01T03:00:00.000Z",
+      "deleted": 0
+    },
+    {
+      "id": "3",
       "title": "Ciklum",
       "parentId": 1,
       "beginDate": "2019-05-01T00:00:00.000Z",
       "expirationDate": null,
       "deleted": 0
-  },
-  {
-      "id": 4,
+    },
+    {
+      "id": "4",
       "title": "CtGO!",
       "parentId": 1,
       "beginDate": "2019-05-02T00:00:00.000Z",
       "expirationDate": null,
       "deleted": 0
-  },
-  {
-      "id": 5,
+    },
+    {
+      "id": "5",
       "title": "PharmTrans",
       "parentId": 1,
       "beginDate": "2019-06-04T00:00:00.000Z",
       "expirationDate": null,
       "deleted": 0
-  },
-  {
-      "id": 6,
+    },
+    {
+      "id": "6",
       "title": "ProjectX",
       "parentId": 4,
       "beginDate": "2019-05-16T00:00:00.000Z",
       "expirationDate": "2019-05-16T00:00:00.000Z",
       "deleted": 0
-  },
-  {
-      "id": 7,
+    },
+    {
+      "id": "7",
       "title": "ProjectY",
       "parentId": 4,
       "beginDate": "2019-05-09T00:00:00.000Z",
       "expirationDate": "2019-05-17T00:00:00.000Z",
       "deleted": 0
-  },
-  {
-      "id": 8,
+    },
+    {
+      "id": "8",
       "title": "x01221",
       "parentId": 5,
       "beginDate": "2019-05-05T00:00:00.000Z",
       "expirationDate": "2019-05-09T00:00:00.000Z",
       "deleted": 0
-  },
-  {
-      "id": 9,
+    },
+    {
+      "id": "9",
       "title": "x01775",
       "parentId": 5,
       "beginDate": "2019-04-18T00:00:00.000Z",
       "expirationDate": null,
       "deleted": 0
-  },
-  {
-      "id": 35,
+    },
+    {
+      "id": "35",
       "title": "test3",
       "parentId": 2,
       "beginDate": "2019-05-06T00:00:00.000Z",
       "expirationDate": "2019-12-01T00:00:00.000Z",
       "deleted": 0
-  },
-  {
-      "id": 37,
+    },
+    {
+      "id": "37",
       "title": "222",
       "parentId": 35,
       "beginDate": "2019-06-10T00:00:00.000Z",
       "expirationDate": null,
       "deleted": 0
-  },
-  {
-      "id": 40,
+    },
+    {
+      "id": "40",
       "title": "4444",
       "parentId": 35,
       "beginDate": "2019-07-27T00:00:00.000Z",
       "expirationDate": null,
       "deleted": 0
-  },
-  {
-      "id": 41,
+    },
+    {
+      "id": "41",
       "title": "555",
       "parentId": 35,
       "beginDate": "2019-07-29T00:00:00.000Z",
       "expirationDate": null,
       "deleted": 0
-  },
-  {
-      "id": 42,
+    },
+    {
+      "id": "42",
       "title": "C11",
       "parentId": 3,
       "beginDate": "2019-07-30T00:00:00.000Z",
       "expirationDate": null,
       "deleted": 0
-  },
-  {
-      "id": 44,
+    },
+    {
+      "id": "44",
       "title": "test",
       "parentId": 1,
       "beginDate": "2019-10-15T00:00:00.000Z",
       "expirationDate": null,
       "deleted": 0
-  }
+    }
   ]
 }

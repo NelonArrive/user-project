@@ -135,7 +135,9 @@ a:hover {
 }
 
 body {
-	margin: 0;
+	max-width: 1600px;
+	padding: 0 15px;
+	margin: 0 auto;
 }
 
 input {
@@ -161,3 +163,12 @@ button:hover {
 	border: solid 2px #5af78e;
 }
 
+h2 {
+	font-size: 25px;
+	font-weight: 700;
+	color: #5af78e;
+}
+
+p {
+	font-size: 20px;
+}
