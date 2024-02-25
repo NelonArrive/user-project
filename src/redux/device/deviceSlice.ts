@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-interface Device {
+export interface Device {
 	deviceId: number
 	projectId: number
 	serialNumber: string

@@ -62,7 +62,6 @@ export interface User {
 export interface IEditUserAsync {
 	firstName: string
 	lastName: string
-	projectName: string
 }
 
 interface UserState {
