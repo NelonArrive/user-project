@@ -35,7 +35,7 @@ export const editUserAsync = createAsyncThunk(
 		userData,
 	}: {
 		userId: number
-		userData: IEditUserAsync
+		userData: User
 	}) => {
 		const response = await editUser(userId, userData)
 		return response
@@ -97,11 +97,10 @@ const userSlice = createSlice({
 				state.items.push(action.payload)
 			})
 			.addCase(editUserAsync.fulfilled, (state, action) => {
-				const index = state.items.findIndex(
-					user => user.id === action.payload.id
-				)
+				const updatedUser = action.payload
+				const index = state.items.findIndex(user => user.id === updatedUser.id)
 				if (index !== -1) {
-					state.items[index] = action.payload
+					state.items[index] = { ...updatedUser, ...state.items[index] }
 				}
 			})
 			.addCase(deleteUserAsync.fulfilled, (state, action) => {

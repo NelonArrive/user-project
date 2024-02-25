@@ -35,10 +35,7 @@ const CardItem: FC<ICardItem> = ({ user }) => {
 		dispatch(
 			editUserAsync({
 				userId,
-				userData: {
-					firstName: editedUser.firstName,
-					lastName: editedUser.lastName,
-				},
+				userData: editedUser,
 			})
 		)
 		setEditing(false)
